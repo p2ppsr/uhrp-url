@@ -1,0 +1,27 @@
+{
+  "name": "uhrp-url",
+  "version": "0.1.0",
+  "description": "Tools for dealing with UHRP URLs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p2ppsr/uhrp-url.git"
+  },
+  "author": "Peer-to-peer Privacy Systems Research, LLC",
+  "license": "Open BSV License",
+  "bugs": {
+    "url": "https://github.com/p2ppsr/uhrp-url/issues"
+  },
+  "homepage": "https://github.com/p2ppsr/uhrp-url#readme",
+  "devDependencies": {
+    "jest": "^26.6.0",
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "base58check": "2.0.0"
+  }
+}
