@@ -16,6 +16,7 @@ const getURLForFile = file => {
 }
 
 const getHashFromURL = URL => {
+  if (URL.startsWith('uhrp:')) URL = URL.slice(5)
   const { prefix, data } = base58check.decode(URL)
   if (data.byteLength !== 33) {
     throw new Error('Invalid length!')
