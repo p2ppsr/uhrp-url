@@ -32,6 +32,14 @@ Given a URL string, verifies its checksum and if valid, returns the hash of the 
 
 **returns**: The 32-byte buffer that is the hash of the data represented by the URL
 
+### isValidURL(URL)
+
+Given a URL string, returns true if it is valid, false otherwise
+
+**URL**: The base58 URL string
+
+**returns**: A boolean, true if the URL is valid
+
 ## License
 
 The license for the code in this repository is the Open BSV License.

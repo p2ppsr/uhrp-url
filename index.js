@@ -30,8 +30,18 @@ const getHashFromURL = URL => {
   return data.slice(1, 33)
 }
 
+const isValidURL = URL => {
+  try {
+    getHashFromURL(URL)
+    return true
+  } catch (e) {
+    return false
+  }
+}
+
 module.exports = {
   getURLForFile,
   getURLForHash,
-  getHashFromURL
+  getHashFromURL,
+  isValidURL
 }

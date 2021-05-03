@@ -1,7 +1,8 @@
 const {
   getURLForFile,
   getURLForHash,
-  getHashFromURL
+  getHashFromURL,
+  isValidURL
 } = require('./index')
 const base58check = require('base58check')
 
@@ -65,6 +66,25 @@ describe('uhrp-url', () => {
       expect(() => getHashFromURL(badURL)).toThrow(new Error(
         'Invalid prefix!'
       ))
+    })
+  })
+  describe('isValidURL', () => {
+    it('Returns true when URL is valid', () => {
+      expect(isValidURL(exampleURL)).toEqual(true)
+    })
+    it('Returns false if checksum is invalid', () => {
+      const badURL = 'XUU7cTfy6fA6q2neLDmzPqJnGB6o18PXKoGaWLPrH1SeWLKgdCKq'
+      expect(isValidURL(badURL)).toEqual(false)
+    })
+    it('Returns false if URL length is invalid', () => {
+      const badURL = base58check.encode(exampleFile, Buffer.from('ce00', 'hex'))
+      expect(isValidURL(badURL)).toEqual(false)
+    })
+    it('Returns false if prefix is invalid', () => {
+      let badURL = base58check.encode(exampleHash, Buffer.from('cf00', 'hex'))
+      expect(isValidURL(badURL)).toEqual(false)
+      badURL = base58check.encode(exampleHash, Buffer.from('ce01', 'hex'))
+      expect(isValidURL(badURL)).toEqual(false)
     })
   })
 })
