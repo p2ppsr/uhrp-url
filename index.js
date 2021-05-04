@@ -11,8 +11,8 @@ const getURLForHash = hash => {
 const getURLForFile = file => {
   const hashFunc = crypto.createHash('sha256')
   hashFunc.update(file)
-  const hash = hashFunc.digest('buffer')
-  return getURLForHash(hash)
+  const hash = hashFunc.digest('hex')
+  return getURLForHash(Buffer.from(hash, 'hex'))
 }
 
 const getHashFromURL = URL => {
