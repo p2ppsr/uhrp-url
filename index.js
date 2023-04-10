@@ -1,6 +1,13 @@
 const base58check = require('base58check')
 const crypto = require('crypto')
 
+// Takes a UHRP url and remove's any prefixes
+const normalizeURL = (URL) => {
+  if (URL.toLowerCase().startsWith('uhrp:')) URL = URL.slice(5)
+  if (URL.startsWith('//')) URL = URL.slice(2)
+  return URL
+}
+
 const getURLForHash = hash => {
   if (hash.byteLength !== 32) {
     throw new Error('Hash length must be 32 bytes (sha256)')
@@ -16,8 +23,7 @@ const getURLForFile = file => {
 }
 
 const getHashFromURL = URL => {
-  if (URL.toLowerCase().startsWith('uhrp:')) URL = URL.slice(5)
-  if (URL.startsWith('//')) URL = URL.slice(2)
+  URL = normalizeURL(URL)
   const { prefix, data } = base58check.decode(URL)
   if (data.byteLength !== 33) {
     throw new Error('Invalid length!')
@@ -41,6 +47,7 @@ const isValidURL = URL => {
 }
 
 module.exports = {
+  normalizeURL,
   getURLForFile,
   getURLForHash,
   getHashFromURL,
