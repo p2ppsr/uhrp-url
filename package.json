@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/p2ppsr/uhrp-url#readme",
   "devDependencies": {
-    "jest": "^26.6.0",
+    "jest": "^29.7.0",
     "standard": "^14.3.4"
   },
   "dependencies": {
