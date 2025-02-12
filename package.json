@@ -2,10 +2,14 @@
   "name": "uhrp-url",
   "version": "0.1.10",
   "description": "Tools for dealing with UHRP URLs",
-  "main": "index.js",
+  "main": "test/index.js",
+  "types": "test/index.d.ts",
   "scripts": {
+    "build": "tsc",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "lint": "standard --fix .",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -18,10 +22,12 @@
   },
   "homepage": "https://github.com/p2ppsr/uhrp-url#readme",
   "devDependencies": {
-    "jest": "^26.6.0",
-    "standard": "^14.3.4"
-  },
-  "dependencies": {
-    "base58check": "2.0.0"
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.11.26",
+    "jest": "^29.7.0",
+    "standard": "^17.0.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.7.3",
+    "base58check": "^2.0.0"
   }
 }

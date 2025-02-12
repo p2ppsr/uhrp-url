@@ -1,10 +1,6 @@
-const {
-  getURLForFile,
-  getURLForHash,
-  getHashFromURL,
-  isValidURL
-} = require('./index')
-const base58check = require('base58check')
+
+import { getURLForFile, getURLForHash, getHashFromURL, isValidURL } from '../index';
+import * as base58check from 'base58check';
 
 const exampleHash = Buffer.from(
   'a0d4c2cb69837827bae6ad6c717218d6f53708e2ebcaefaebac2639ac27ccbb7',
